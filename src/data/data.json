@@ -1,0 +1,123 @@
+{
+    "classTable": {
+        "lists": [
+            {
+                "name": "大学体育(1)",
+                "places": "风华运动场1",
+                "teacher": "教师1",
+                "week": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                "day": "Monday",
+                "time": [3, 4],
+                "type": "Compulsory"
+            },
+            {
+                "name": "数据结构",
+                "places": "3502",
+                "teacher": "丁晓宇",
+                "week": [1, 2 ,3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+                "day": "Thursday",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },
+            {
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },{
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },{
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            },{
+                "name": "",
+                "places": "",
+                "teacher": "",
+                "week": [],
+                "day": "",
+                "time": [],
+                "type": ""
+            }
+
+
+
+        ]
+    }
+}

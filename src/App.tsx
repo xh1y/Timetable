@@ -1,16 +1,14 @@
 /**
- * Create time: 2024 07 20  21:10:32
+ * Create time: 2024 07 20  23:7:8
  * File name: App.tsx
  * Path: src\App.tsx
  * About: App page
  */
+import { router } from './router'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
-    return (
-        <div>
-            <h2>App</h2>
-        </div>
-    )
+    return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App
