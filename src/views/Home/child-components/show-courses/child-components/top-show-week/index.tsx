@@ -4,16 +4,36 @@
  * Path: src\views\Home\child-components\show-courses\child-components\top-show-week\index.tsx
  * About:
  */
-import { TopTimeWrapper } from './styles.ts'
-import { getAccurateDate } from '../../../../../../assets/getAccurateDate.ts'
-import { firstDayDate, nowDate } from '../../../../../../assets/constants.ts'
+import { BackToNowButtonWrapper, TopTimeWrapper } from './styles.ts'
+import { Dispatch, SetStateAction } from 'react'
 
-function TopWeek() {
-    const week = getAccurateDate(firstDayDate, nowDate)
+const TopWeek = ({
+    week,
+    currentWeek,
+    setStartWeek,
+}: {
+    week: number
+    currentWeek: number
+    setStartWeek: Dispatch<SetStateAction<number>>
+}) => {
     // return
     return (
-        <TopTimeWrapper>
+        <TopTimeWrapper onMouseDown={(e) => console.log(e, 'fxxk you')}>
             <div className='week'>第{week}周</div>
+            {currentWeek != week ? (
+                <BackToNowButtonWrapper
+                    onMouseDown={(e) => {
+                        e.stopPropagation()
+                        e.preventDefault()
+                        console.log('Fxxk! fxxk! fxxk!')
+                        console.log('----------------------------')
+                        setStartWeek(currentWeek)
+                    }}>
+                    回到本周
+                </BackToNowButtonWrapper>
+            ) : (
+                <></>
+            )}
         </TopTimeWrapper>
     )
 }

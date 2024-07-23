@@ -50,7 +50,12 @@ export const colorOptions = [
         colorBottom: '#fff',
         background: '#f2f7fd',
     },
+    {
+        color: '#fff',
+        colorBottom: '#fff',
+        background: '#eaecf2',
+    },
 ]
 
-export const nowDate = new MyDate(2024, 6, 2)
-export const firstDayDate = new MyDate(2024, 2, 26)
+export const nowDate = new MyDate(2024, 11, 8)
+export const firstDayDate = new MyDate(2024, 9, 9)

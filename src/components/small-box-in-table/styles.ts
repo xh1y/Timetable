@@ -9,17 +9,28 @@ import { IBoxProps } from '../../types'
 import { colorOptions, width } from '../../assets/constants.ts'
 
 export const SmallBoxInTableWrapper = styled.div<IBoxProps>`
-    width: ${width / 8}px;
+    width: ${width / 8 - 2}px;
     height: ${(props) => {
         return props.$number * 60
     }}px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: ${(props) => {
         return colorOptions[props.$color].background
     }};
 
+    &:hover {
+        transition: 1.5s;
+        transform: scale(0.9);
+    }
+
     display: flex;
+    //display: table;
     flex-direction: column;
+
+    margin: 1px;
+    transition: 1.5s;
+
+    transform: translateY(${(props) => props.$offset}px);
 
     .top {
         color: ${(props) => {
@@ -27,6 +38,7 @@ export const SmallBoxInTableWrapper = styled.div<IBoxProps>`
         }};
         margin-top: 10px;
         top: 0;
+        align-items: flex-start;
     }
 
     .words {
@@ -43,13 +55,15 @@ export const SmallBoxInTableWrapper = styled.div<IBoxProps>`
         //white-space: nowrap;
         overflow: hidden;
         text-align: center;
+        //align-content: center;
     }
 
     .bottomText {
         color: ${(props) => {
             return colorOptions[props.$color].colorBottom
         }};
-        bottom: 0;
+        margin-bottom: 10px;
+        align-items: flex-end;
     }
 
     .big {

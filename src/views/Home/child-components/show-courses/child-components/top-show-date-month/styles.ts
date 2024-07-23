@@ -8,7 +8,6 @@ import styled from 'styled-components'
 
 export const TopDateWrapper = styled.div`
     position: absolute;
-    top: 60px;
     height: 50px;
     width: 100%;
     display: flex;

@@ -21,57 +21,68 @@ function LeftPart() {
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={1}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={4}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
             <SmallBoxInTable
                 topText={counter++}
                 bottomText={''}
                 color={colorInList.notNow}
-                fontSize={10}></SmallBoxInTable>
+                fontSize={10}
+                offset={counter - 2}></SmallBoxInTable>
         </LeftShowWrapper>
     )
 }

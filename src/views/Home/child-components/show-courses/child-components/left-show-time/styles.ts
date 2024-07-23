@@ -9,4 +9,6 @@ import styled from 'styled-components'
 export const LeftShowWrapper = styled.div`
     width: 60px;
     height: 100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
 `

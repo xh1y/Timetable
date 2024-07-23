@@ -18,7 +18,8 @@ export const AppWrapper = styled.div`
     margin: auto;
     height: ${width * 2.22}px;
     width: ${width}px;
-    overflow: hidden;
+
+    //overflow: hidden;
     .background {
         background-color: #f8f9fd;
         height: ${width * 2.22}px;

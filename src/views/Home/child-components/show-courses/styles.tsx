@@ -5,19 +5,37 @@
  * About:
  */
 import styled from 'styled-components'
+import { width } from '../../../../assets/constants.ts'
 
 const CoursesWrapper = styled.div`
-    position: relative;
+    position: absolute;
+    //border: 1px solid #000;
+    transition: transform 1s;
+`
 
-    .bottom {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        top: 120px;
-        width: 100%;
-        height: 780px;
-        //background: green;
+const BottomWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 60px;
+    width: 100%;
+    height: 780px;
+    //background: green;
+`
+
+const UnderMovableWrapper = styled.div<{ offset: number }>`
+    position: relative;
+    top: 50px;
+    display: flex;
+    flex-direction: row;
+    transform: translateX(-${(props) => props.offset}px);
+    transition: transform 1s;
+    height: ${width * 2.22 * 0.95 - 160}px;
+
+    .oneWeek {
+        margin: 0;
+        width: ${width}px;
     }
 `
 
-export { CoursesWrapper }
+export { CoursesWrapper, BottomWrapper, UnderMovableWrapper }

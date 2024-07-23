@@ -6,9 +6,18 @@
  */
 import ShowCourses from './child-components/show-courses'
 import { AppWrapper, TimeTableWrapper } from './home-style.ts'
-import React, { MouseEvent, useEffect, useState } from 'react'
-import { IPosition } from '../../types'
+import React, {
+    MouseEvent,
+    MutableRefObject,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
+import { AllWeekClasses, IPosition } from '../../types'
 import { width } from '../../assets/constants.ts'
+import { myRequest } from '../../services'
+import axios from 'axios'
+import { sortDataToWeek } from '../../assets/sortData.ts'
 
 function Home() {
     // state
@@ -21,12 +30,40 @@ function Home() {
     const [movingStatus, setMovingStatus] = useState<
         'start' | 'processing' | 'end'
     >('end')
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
     let offset = 14.5
+    const courses: MutableRefObject<AllWeekClasses> = useRef([
+        [
+            {
+                teacher: '',
+                day: 1,
+                name: '',
+                place: '',
+                time: [],
+                compulsory: true,
+                startWeek: 0,
+                endWeek: 0,
+                weekType: 'all',
+            },
+        ],
+    ])
     // effect
     useEffect(() => {
         console.log(transitionY, movingStatus)
     }, [transitionY, movingStatus])
+    useEffect(() => {
+        console.log('Home mounted!!')
+        return console.log('Unmounted!!')
+    }, [])
+
+    useEffect(() => {
+        axios.get('/class/data/').then((r) => console.log(r.data))
+        myRequest.get().then((r: any) => {
+            console.log(r)
+            console.log(sortDataToWeek(r))
+            courses.current = sortDataToWeek(r)
+        })
+    }, [])
 
     // event handler
     function mouseUpHandle(e: MouseEvent<HTMLDivElement>) {
@@ -45,6 +82,7 @@ function Home() {
         })
         setPending(true)
         setShow(true)
+        console.log(courses)
     }
 
     function mouseDownHandle(e: MouseEvent<HTMLDivElement>) {
@@ -63,8 +101,12 @@ function Home() {
     // return
     return (
         <AppWrapper
-            onMouseUp={(e: MouseEvent<HTMLDivElement>) => mouseUpHandle(e)}
-            onMouseDown={(e: MouseEvent<HTMLDivElement>) => mouseDownHandle(e)}>
+            onMouseUp={(e: MouseEvent<HTMLDivElement>) => {
+                if (!pending) mouseUpHandle(e)
+            }}
+            onMouseDown={(e: MouseEvent<HTMLDivElement>) => {
+                if (!pending) mouseDownHandle(e)
+            }}>
             <div
                 className='background'
                 onClick={(e) => {
@@ -72,7 +114,7 @@ function Home() {
                     setTimeout(() => {
                         setShow(false)
                     }, 1000)
-                    e.preventDefault()
+                    e.stopPropagation()
                 }}></div>
             <TimeTableWrapper
                 $offsetx={0}
@@ -95,7 +137,7 @@ function Home() {
                     <div className='small-bar'></div>
                     {show ? (
                         <>
-                            <ShowCourses />
+                            <ShowCourses courses={courses.current} />
                         </>
                     ) : (
                         <></>
