@@ -14,8 +14,18 @@ interface IClass {
 }
 
 interface IClassLists {
-    list: IClass[]
+    classList: IClass[]
+    commonThingsList: ICommonThings[]
     totalWeek: number
+}
+
+interface ICommonThings {
+    id: number
+    title: string
+    detail: string
+    week: number[]
+    day: Day
+    time: CourseOneDay[]
 }
 
 interface IMovingBoxProps {
@@ -92,5 +102,6 @@ export type {
     CourseOneDay,
     CoursesOneTime,
     Week,
+    ICommonThings,
 }
 export { colorInList }

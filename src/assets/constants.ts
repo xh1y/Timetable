@@ -57,5 +57,34 @@ export const colorOptions = [
     },
 ]
 
+export const startTimeOfClass = [
+    '8:00',
+    '8:55',
+    '10:15',
+    '11:10',
+    '14:00',
+    '14:55',
+    '16:15',
+    '17:10',
+    '19:00',
+    '19:55',
+    '20:50',
+    '21:45',
+]
+export const endTimeOfClass = [
+    '8:45',
+    '9:40',
+    '11:00',
+    '11:55',
+    '14:45',
+    '15:40',
+    '17:00',
+    '17:55',
+    '19:45',
+    '20:30',
+    '21:35',
+    '22:30',
+]
+
 export const nowDate = new MyDate(2024, 11, 8)
 export const firstDayDate = new MyDate(2024, 9, 9)

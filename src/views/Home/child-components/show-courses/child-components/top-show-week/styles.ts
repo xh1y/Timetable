@@ -44,3 +44,9 @@ export const BackToNowButtonWrapper = styled.div`
     text-align: center;
     border-radius: 20px;
 `
+
+export const AddItemWrapper = styled.div`
+    position: absolute;
+    left: 360px;
+    top: 2px;
+`

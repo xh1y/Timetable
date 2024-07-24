@@ -1,6 +1,6 @@
 /**
  * Create time: 2024 07 21  00:18:26
- * File name: home-style.ts
+ * File name: home-styles.ts
  * Path: src/views/Home
  * About:
  */
@@ -19,7 +19,7 @@ export const AppWrapper = styled.div`
     height: ${width * 2.22}px;
     width: ${width}px;
 
-    //overflow: hidden;
+    overflow: hidden;
     .background {
         background-color: #f8f9fd;
         height: ${width * 2.22}px;

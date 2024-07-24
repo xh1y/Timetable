@@ -1,6 +1,6 @@
 /**
  * Create time: 2024 07 21  00:40:55
- * File name: index.ts
+ * File name: index.tsx
  * Path: src/views/Home/child-components/show-courses
  * About:
  */

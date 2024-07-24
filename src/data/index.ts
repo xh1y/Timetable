@@ -1,8 +1,7 @@
-import Mock from 'mockjs'
 import { IClassLists } from '../types'
 
-const classDataRaw: IClassLists = /*Mock.mock(*/ {
-    list: [
+export const classDataRaw: IClassLists = /*Mock.mock(*/ {
+    classList: [
         {
             name: '大学体育2',
             teacher: 'zyh',
@@ -278,7 +277,6 @@ const classDataRaw: IClassLists = /*Mock.mock(*/ {
             compulsory: true,
         },
     ],
+    commonThingsList: [],
     totalWeek: 21,
 }
-
-export const classData = Mock.mock('/class/data/', 'get', classDataRaw)

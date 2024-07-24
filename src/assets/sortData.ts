@@ -8,10 +8,12 @@ import {
     AllWeekClasses,
     CourseOneDay,
     CoursesOneTime,
+    Day,
     IClassLists,
     OneWeekClasses,
     Week,
 } from '../types'
+import { endTimeOfClass, startTimeOfClass } from './constants.ts'
 
 function getWeekType(weeks: number[]): Week {
     // Attention: week数组是连续的，所以只需要判断第一个和第二个
@@ -31,7 +33,7 @@ export function sortDataToWeek(data: IClassLists): AllWeekClasses {
     const allWeekClasses: AllWeekClasses = []
     for (let currentWeek = 0; currentWeek < data.totalWeek; currentWeek++) {
         const oneWeek: OneWeekClasses = []
-        for (const classList of data.list) {
+        for (const classList of data.classList) {
             for (let j = 0; j < classList.detailTimeAndPlace.length; j++) {
                 if (
                     classList.detailTimeAndPlace[j].week.includes(
@@ -163,33 +165,42 @@ export function getTime(
     startTime: CourseOneDay,
     timeDur: CourseOneDay
 ): string {
-    const startTimeOfClass = [
-        '8:00',
-        '8:55',
-        '10:15',
-        '11:10',
-        '14:00',
-        '14:55',
-        '16:15',
-        '17:10',
-        '19:00',
-        '19:55',
-        '20:50',
-        '21:45',
-    ]
-    const endTimeOfClass = [
-        '8:45',
-        '9:40',
-        '11:00',
-        '11:55',
-        '14:45',
-        '15:40',
-        '17:00',
-        '19:45',
-        '20:30',
-        '21:35',
-        '22:30',
-    ]
-
     return `${startTimeOfClass[startTime - 1]}-${endTimeOfClass[startTime + timeDur - 2]}`
+}
+
+export function changeNumberToChinese(day: number | Day) {
+    switch (day) {
+        case 3:
+            return '三'
+        case 1:
+            return '一'
+        case 2:
+            return '二'
+        case 4:
+            return '四'
+        case 5:
+            return '五'
+        case 6:
+            return '六'
+        case 7:
+            return '天'
+        default:
+            return '错误'
+    }
+}
+
+export function newDay(num: number): Day {
+    if (num >= 1 && num <= 7) {
+        return <Day>num
+    } else {
+        return 1
+    }
+}
+
+export function newCourseOneDay(num: number): CourseOneDay {
+    if (num >= 1 && num <= 12) {
+        return <CourseOneDay>num
+    } else {
+        return 1
+    }
 }

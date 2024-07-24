@@ -18,6 +18,7 @@ import { width } from '../../assets/constants.ts'
 import { myRequest } from '../../services'
 import axios from 'axios'
 import { sortDataToWeek } from '../../assets/sortData.ts'
+import { shallowEqual, useSelector } from 'react-redux'
 
 function Home() {
     // state
@@ -47,6 +48,14 @@ function Home() {
             },
         ],
     ])
+
+    const { commonThingsList } = useSelector(
+        (state: any) => ({
+            commonThingsList: state.allUpdate.commonThingsList,
+        }),
+        shallowEqual
+    )
+    console.log(commonThingsList)
     // effect
     useEffect(() => {
         console.log(transitionY, movingStatus)

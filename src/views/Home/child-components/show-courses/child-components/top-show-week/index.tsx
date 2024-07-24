@@ -4,8 +4,13 @@
  * Path: src\views\Home\child-components\show-courses\child-components\top-show-week\index.tsx
  * About:
  */
-import { BackToNowButtonWrapper, TopTimeWrapper } from './styles.ts'
+import {
+    AddItemWrapper,
+    BackToNowButtonWrapper,
+    TopTimeWrapper,
+} from './styles.ts'
 import { Dispatch, SetStateAction } from 'react'
+import AddNewItem from '../../../../../../assets/svg/add-new-item.tsx'
 
 const TopWeek = ({
     week,
@@ -34,6 +39,9 @@ const TopWeek = ({
             ) : (
                 <></>
             )}
+            <AddItemWrapper>
+                <AddNewItem />
+            </AddItemWrapper>
         </TopTimeWrapper>
     )
 }

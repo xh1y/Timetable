@@ -6,8 +6,11 @@
  */
 import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
+import { classDataRaw } from './data'
+import Mock from 'mockjs'
 
 function App() {
+    Mock.mock('/class/data/', 'get', classDataRaw)
     return <RouterProvider router={router}></RouterProvider>
 }
 
