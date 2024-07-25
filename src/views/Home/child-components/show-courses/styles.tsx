@@ -1,11 +1,9 @@
-/**
+/*
  * Create time: 2024 07 21  00:40:55
- * File name: index.tsx
- * Path: src/views/Home/child-components/show-courses
- * About:
  */
+
 import styled from 'styled-components'
-import { width } from '../../../../assets/constants.ts'
+import { width } from '../../../../assets/constant/constants.ts'
 
 const CoursesWrapper = styled.div`
     position: absolute;

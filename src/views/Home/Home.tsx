@@ -1,12 +1,8 @@
-/**
+/*
  * Create time: 2024 07 21  0:9:20
- * File name: Home.tsx
- * Path: src\views\Home.tsx
- * About: Home page
  */
-import ShowCourses from './child-components/show-courses'
-import { AppWrapper, TimeTableWrapper } from './home-style.ts'
-import React, {
+
+import {
     MouseEvent,
     MutableRefObject,
     useEffect,
@@ -14,12 +10,14 @@ import React, {
     useState,
 } from 'react'
 import { AllWeekClasses, IPosition } from '../../types/types.ts'
-import { width } from '../../assets/constants.ts'
-import { myRequest } from '../../services'
-import axios from 'axios'
-import { sortDataToWeek } from '../../assets/sortData.ts'
-import { getQuery } from '../../assets/getQuery.ts'
+import { getQuery } from '../../assets/function/getQuery.ts'
 import { useLocation } from 'react-router-dom'
+import axios from 'axios'
+import { myRequest } from '../../services'
+import { sortDataToWeek } from '../../assets/function/sortData.ts'
+import { width } from '../../assets/constant/constants.ts'
+import { AppWrapper, TimeTableWrapper } from './home-style.ts'
+import ShowCourses from './child-components/show-courses'
 
 function Home() {
     // state

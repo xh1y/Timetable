@@ -1,17 +1,14 @@
-/**
+/*
  * Create time: 2024 07 24  11:17:46
- * File name: AddTitle.tsx
- * Path: src\views\Add-title-page\AddTitle.tsx
- * About:
  */
 
-import { TitleWrapper } from './styles.ts'
-import InputBox from '../../components/input-box'
-import LeftArray from '../../assets/svg/left-array.tsx'
-import RightArrowWithLeft from '../../assets/svg/right-arrow-with-left-.tsx'
-import { useState } from 'react'
+import { getQuery } from '../../assets/function/getQuery.ts'
 import { useLocation } from 'react-router-dom'
-import { getQuery } from '../../assets/getQuery.ts'
+import { useState } from 'react'
+import { TitleWrapper } from './styles.ts'
+import LeftArrow from '../../assets/svg/left-arrow.tsx'
+import InputBox from '../../components/input-box'
+import RightArrowWithLeft from '../../assets/svg/right-arrow-with-left-.tsx'
 
 function AddTitle() {
     // state
@@ -33,7 +30,7 @@ function AddTitle() {
                 onClick={() => {
                     window.location.href = '/'
                 }}>
-                <LeftArray />
+                <LeftArrow />
             </div>
             <div className='add-title-container'>
                 为你的行程添加

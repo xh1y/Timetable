@@ -1,9 +1,7 @@
-/**
+/*
  * Create time: 2024 07 21  00:11:03
- * File name: styles.tsx
- * Path: src/router
- * About: router
  */
+
 import { Navigate } from 'react-router'
 import ErrorPage from '../views/Error/ErrorPage.tsx'
 import Home from '../views/Home/Home.tsx'

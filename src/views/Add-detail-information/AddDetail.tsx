@@ -1,16 +1,14 @@
-/**
+/*
  * Create time: 2024 07 24  11:18:9
- * File name: AddDetail.tsx
- * Path: src\views\Add-detail-information\AddDetail.tsx
- * About:
  */
-import { DetailWrapper } from './styles.ts'
-import LeftArray from '../../assets/svg/left-array.tsx'
+
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { getQuery } from '../../assets/function/getQuery.ts'
+import { DetailWrapper } from './styles.ts'
+import LeftArrow from '../../assets/svg/left-arrow.tsx'
 import InputBox from '../../components/input-box'
 import RightArrowWithLeft from '../../assets/svg/right-arrow-with-left-.tsx'
-import { useLocation } from 'react-router-dom'
-import { getQuery } from '../../assets/getQuery.ts'
 
 function AddDetail() {
     // state
@@ -32,7 +30,7 @@ function AddDetail() {
                 onClick={() => {
                     window.location.href = '/#/add/title?title=' + title
                 }}>
-                <LeftArray />
+                <LeftArrow />
             </div>
             <div className='add-title-container'>
                 为你的行程添加

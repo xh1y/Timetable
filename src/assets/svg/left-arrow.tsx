@@ -1,11 +1,10 @@
-/**
- * Create time: 2024 07 24  11:49:26
- * File name: left-array.tsx
- * Path: src\assets\svg\left-array.tsx
- * About:
+/*
+ Create time: 2024 07 24  11:49:26
+ About: An image in svg format to be used as a return icon.
+ Download from iconfont
  */
 
-function LeftArray() {
+function LeftArrow() {
     return (
         <svg
             className='icon'
@@ -19,5 +18,5 @@ function LeftArray() {
     )
 }
 
-export default LeftArray
-// LeftArray
+export default LeftArrow
+// LeftArrow

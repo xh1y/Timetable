@@ -1,18 +1,16 @@
-/**
+/*
  * Create time: 2024 07 22  21:40:19
- * File name: styles.ts
- * Path: src/views/Home/child-components/show-courses/child-components/right-show-courses/child-components
- * About:
  */
+
 import styled from 'styled-components'
-import { width } from '../../../../../../assets/constants.ts'
+import { width } from '../../../../../../assets/constant/constants.ts'
 
 const InformationWrapper = styled.div<{ $offset: number }>`
     position: absolute;
     height: 300px;
     width: ${width}px;
     //bottom: 0;
-    top: 600px;
+    top: 580px;
     z-index: 9;
     box-shadow: 1px 1px 5px 1px #f4f5fa;
     background-color: #fff;

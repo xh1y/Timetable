@@ -1,5 +1,6 @@
 import { IClassLists } from '../types/types.ts'
 
+// default data
 export const classDataRaw: IClassLists = /*Mock.mock(*/ {
     classList: [
         {
@@ -138,7 +139,7 @@ export const classDataRaw: IClassLists = /*Mock.mock(*/ {
             compulsory: true,
         },
         {
-            name: '数据结构A (Maybe No)',
+            name: '数据结构A',
             teacher: 'hb',
             detailTimeAndPlace: [
                 {
@@ -227,7 +228,7 @@ export const classDataRaw: IClassLists = /*Mock.mock(*/ {
             compulsory: false,
         },
         {
-            name: '数据结构A (Maybe No)',
+            name: '数据结构A (实验)',
             teacher: 'lr',
             detailTimeAndPlace: [
                 {

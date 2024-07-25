@@ -1,11 +1,9 @@
-/**
+/*
  * Create time: 2024 07 24  11:24:32
- * File name: styles.ts
- * Path: src/views/Add-detail-information
- * About:
  */
+
 import styled from 'styled-components'
-import { width } from '../../assets/constants.ts'
+import { width } from '../../assets/constant/constants.ts'
 
 export const DetailWrapper = styled.div`
     position: absolute;

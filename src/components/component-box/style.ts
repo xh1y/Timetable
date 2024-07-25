@@ -1,9 +1,4 @@
-/**
- * Create time: 2024 07 24  16:24:28
- * File name: style.ts
- * Path: src\components\component-box\style.ts
- * About:
- */
+/* Create time: 2024 07 24  16:24:28 */
 
 import styled from 'styled-components'
 

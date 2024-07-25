@@ -1,11 +1,8 @@
-/**
- * Create time: 2024 07 24  14:49:48
- * File name: styles.ts
- * Path: src/views/Total
- * About:
- */
+/*
+ * Create time: 2024 07 24  14:49:48 */
+
 import styled from 'styled-components'
-import { width } from '../../assets/constants.ts'
+import { width } from '../../assets/constant/constants.ts'
 
 export const TotalPageWrapper = styled.div`
     position: absolute;

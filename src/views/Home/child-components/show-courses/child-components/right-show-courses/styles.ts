@@ -1,11 +1,8 @@
-/**
- * Create time: 2024 07 21  13:53:38
- * File name: styles.ts
- * Path: src\views\Home\child-components\show-courses\child-components\right-show-courses\styles.ts
- * About:
- */
+/*
+ * Create time: 2024 07 21  13:53:38 */
+
 import styled from 'styled-components'
-import { width } from '../../../../../../assets/constants.ts'
+import { width } from '../../../../../../assets/constant/constants.ts'
 
 const RightShowWrapper = styled.div`
     position: absolute;

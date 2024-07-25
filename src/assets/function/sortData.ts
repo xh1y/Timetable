@@ -1,24 +1,28 @@
-/**
- * Create time: 2024 07 22  12:29:44
- * File name: sortData.ts
- * Path: src/assets
- * About:
+/*
+ Create time: 2024 07 22  12:29:44
+ File name: sortData.ts
+ Path: src/assets
+ About:
  */
+
 import {
     AllWeekClasses,
-    CourseOneDay,
     CoursesOneTime,
-    Day,
     IClass,
     IClassLists,
     ICommonThings,
     OneWeekClasses,
     Week,
-} from '../types/types.ts'
-import { endTimeOfClass, startTimeOfClass } from './constants.ts'
+} from '../../types/types.ts'
+import { changeNumberToChinese, newCourseOneDay } from './getAccurateDate.ts'
+import { endTimeOfClass, startTimeOfClass } from '../constant/constants.ts'
 
+/**
+ * @param weeks An array representing the week of the course
+ * @return 'all' | 'odd' | 'even'
+ */
 function getWeekType(weeks: number[]): Week {
-    // Attention: week数组是连续的，所以只需要判断第一个和第二个
+    // Attention: The week array is contiguous, so only the first and second elements need to be determined
     if (weeks.length == 1) {
         return 'all'
     }
@@ -31,6 +35,48 @@ function getWeekType(weeks: number[]): Week {
     }
 }
 
+/**
+ *
+ * Day: number from 1 to 7
+ * CourseOneDay: number from 1 to 12
+ *
+ * interface IClassLists {
+ *     classList: {
+ *         name: string
+ *         teacher: string
+ *         detailTimeAndPlace: {
+ *             places: string
+ *             week: number[]
+ *             day: Day
+ *             time: CourseOneDay[]
+ *         }[]
+ *         compulsory: boolean
+ *     }
+ *
+ *     commonThingsList: {
+ *         id: number
+ *         title: string
+ *         detail: string
+ *         week: number[]
+ *         day: Day
+ *         time: CourseOneDay[]
+ *     }[]
+ *     totalWeek: number
+ * }
+ *
+ * type AllWeekClasses = {
+ *     name: string
+ *     teacher: string
+ *     day: Day
+ *     time: CourseOneDay[]
+ *     place: string
+ *     compulsory: boolean
+ *     startWeek: number
+ *     endWeek: number
+ *     weekType: Week
+ *     isClass: boolean
+ * }[][]
+ */
 export function sortDataToWeek(data: IClassLists): AllWeekClasses {
     const allWeekClasses: AllWeekClasses = []
     const classData: IClass[] = data.classList
@@ -94,6 +140,7 @@ export function sortDataToWeek(data: IClassLists): AllWeekClasses {
     return allWeekClasses
 }
 
+// Insert an empty data to fill the times when there is no class
 export const emptyItem: CoursesOneTime = {
     name: '',
     teacher: '',
@@ -144,6 +191,7 @@ export function sortDataInTimeForAll(
     return allThings
 }
 
+// Organize data into two-dimensional arrays for easy filling of the page
 export function sortDataInTimeForOneWeek(
     classes: OneWeekClasses
 ): CoursesOneTime[][] {
@@ -193,40 +241,4 @@ export function sortDataInTimeForOneWeek(
     }
 
     return allThings
-}
-
-export function getTime(
-    startTime: CourseOneDay,
-    timeDur: CourseOneDay
-): string {
-    return `${startTimeOfClass[startTime - 1]}-${endTimeOfClass[startTime + timeDur - 2]}`
-}
-
-export function changeNumberToChinese(day: number | Day) {
-    switch (day) {
-        case 3:
-            return '三'
-        case 1:
-            return '一'
-        case 2:
-            return '二'
-        case 4:
-            return '四'
-        case 5:
-            return '五'
-        case 6:
-            return '六'
-        case 7:
-            return '天'
-        default:
-            return '错误'
-    }
-}
-
-export function newDay(num: number): Day {
-    return num >= 1 && num <= 7 ? <Day>num : 1
-}
-
-export function newCourseOneDay(num: number): CourseOneDay {
-    return num >= 1 && num <= 12 ? <CourseOneDay>num : 1
 }

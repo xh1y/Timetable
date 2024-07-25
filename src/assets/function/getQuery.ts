@@ -1,10 +1,9 @@
-/**
- * Create time: 2024 07 24  14:32:46
- * File name: getQuery.ts
- * Path: src/assets
- * About:
+/*
+ Create time: 2024 07 24  14:32:46
+ About: function for get query
  */
 
+// Convert ?xxx=xxx&xxx=xxx to an object { xxx: xxx, xxx: xxx }
 export function getQuery(location: string[]) {
     const totalInformation: any = {}
     for (const words of location) {

@@ -1,9 +1,7 @@
-/**
+/*
  * Create time: 2024 07 24  13:12:50
- * File name: addData.ts
- * Path: src/data
- * About:
  */
+
 import { IClasses, ICommonThings } from '../types/types.ts'
 
 export function addData(

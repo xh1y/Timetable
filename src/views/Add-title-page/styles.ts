@@ -1,11 +1,9 @@
-/**
+/*
  * Create time: 2024 07 24  11:28:04
- * File name: styles.ts
- * Path: src/views/Add-title-page
- * About:
  */
+
 import styled from 'styled-components'
-import { width } from '../../assets/constants.ts'
+import { width } from '../../assets/constant/constants.ts'
 
 export const TitleWrapper = styled.div`
     position: absolute;
