@@ -23,12 +23,26 @@ const InformationWrapper = styled.div<{ $offset: number }>`
     > div {
         margin: 10px;
     }
+
+    display: flex;
+    flex-direction: column;
     .header-name {
         position: relative;
         top: 18px;
         font-size: 21px;
         height: 24px;
         line-height: 24px;
+        display: flex;
+        flex-direction: row;
+
+        .name {
+            align-items: flex-start;
+        }
+
+        .buttons {
+            position: absolute;
+            left: ${width - 20 - 56}px;
+        }
     }
 
     .small-place-and-teacher {

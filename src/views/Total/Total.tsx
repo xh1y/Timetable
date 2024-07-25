@@ -11,7 +11,12 @@ import { getQuery } from '../../assets/getQuery.ts'
 import { useLocation } from 'react-router-dom'
 import { JSX, useEffect, useRef, useState } from 'react'
 import ComponentBox from '../../components/component-box/ComponentBox.tsx'
-import { CourseOneDay, Day, IClassLists, ICommonThings } from '../../types'
+import {
+    CourseOneDay,
+    Day,
+    IClassLists,
+    ICommonThings,
+} from '../../types/types.ts'
 import {
     changeNumberToChinese,
     getTime,
@@ -47,6 +52,15 @@ function Total() {
         }),
         shallowEqual
     )
+
+    const { allUpdate } = useSelector(
+        (state: any) => ({
+            allUpdate: state.allUpdate,
+        }),
+        shallowEqual
+    )
+    console.log('!!!!______')
+    console.log(allUpdate)
 
     function addItemsInCommonThings(payload: ICommonThings) {
         dispatch(addNewItemInThingsAction(payload))
@@ -292,7 +306,7 @@ function Total() {
                 className='go-to-next'
                 onClick={() => {
                     addItemsInCommonThings({
-                        id: 2,
+                        id: week * 1000 + day * 100 + startClass,
                         title: decodeURI(title),
                         detail: decodeURI(detail),
                         week: [week],
@@ -300,7 +314,10 @@ function Total() {
                         time: getArrayTime(startClass, endClass),
                     })
                     console.log(commonThingsList)
-                    // window.location.href = '/'
+                    setTimeout(() => {
+                        console.log(commonThingsList)
+                        window.location.href = '/'
+                    }, 1000)
                 }}>
                 <RightArrowWithLeft />
             </div>

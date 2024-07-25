@@ -4,7 +4,7 @@
  * Path: src/data
  * About:
  */
-import { IClasses, ICommonThings } from '../types'
+import { IClasses, ICommonThings } from '../types/types.ts'
 
 export function addData(
     isClass: boolean,

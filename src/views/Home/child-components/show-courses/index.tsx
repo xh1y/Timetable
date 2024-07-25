@@ -20,7 +20,7 @@ import {
     AllWeekClasses,
     CoursesOneTime,
     OneWeekClasses,
-} from '../../../../types'
+} from '../../../../types/types.ts'
 import InformationBox from './child-components/Information-box'
 import { emptyItem } from '../../../../assets/sortData.ts'
 

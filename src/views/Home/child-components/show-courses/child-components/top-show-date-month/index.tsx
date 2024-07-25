@@ -6,7 +6,7 @@
  */
 import { TopDateWrapper } from './styles.ts'
 import SmallBoxInTable from '../../../../../../components/small-box-in-table'
-import { colorInList } from '../../../../../../types'
+import { colorInList } from '../../../../../../types/types.ts'
 import { getFirstDayOfWeek } from '../../../../../../assets/getAccurateDate.ts'
 import { firstDayDate, nowDate } from '../../../../../../assets/constants.ts'
 

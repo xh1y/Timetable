@@ -10,7 +10,7 @@ import {
     colorInList,
     CoursesOneTime,
     OneWeekClasses,
-} from '../../../../../../types'
+} from '../../../../../../types/types.ts'
 import { sortDataInTimeForOneWeek } from '../../../../../../assets/sortData.ts'
 import { Dispatch, memo, SetStateAction } from 'react'
 
@@ -36,31 +36,36 @@ const RightPart = memo(
         // event handler
         console.log('After formatting: in week ', showWeek)
         console.log(sortDataInTimeForOneWeek(coursesInThisWeek))
-        const thisWeekCourses = sortDataInTimeForOneWeek(coursesInThisWeek)
+        const thisWeekCourses: CoursesOneTime[][] =
+            sortDataInTimeForOneWeek(coursesInThisWeek)
 
         function getColor(course: CoursesOneTime) {
-            if (course.name !== '') {
-                switch (course.timeStart) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        return colorInList.morning
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                        return colorInList.afternoon
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                        return colorInList.evening
-                    default:
-                        return colorInList.now
+            if (course.isClass) {
+                if (course.name !== '') {
+                    switch (course.timeStart) {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            return colorInList.morning
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                            return colorInList.afternoon
+                        case 9:
+                        case 10:
+                        case 11:
+                        case 12:
+                            return colorInList.evening
+                        default:
+                            return colorInList.now
+                    }
+                } else {
+                    return colorInList.nothing
                 }
             } else {
-                return colorInList.nothing
+                return colorInList.defineAfter
             }
         }
 

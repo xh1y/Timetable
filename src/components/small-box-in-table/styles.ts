@@ -5,7 +5,7 @@
  * About:
  */
 import styled from 'styled-components'
-import { IBoxProps } from '../../types'
+import { IBoxProps } from '../../types/types.ts'
 import { colorOptions, width } from '../../assets/constants.ts'
 
 export const SmallBoxInTableWrapper = styled.div<IBoxProps>`

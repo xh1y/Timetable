@@ -7,7 +7,7 @@
 
 import styled from 'styled-components'
 import { width } from '../../assets/constants.ts'
-import { IMovingBoxProps } from '../../types'
+import { IMovingBoxProps } from '../../types/types.ts'
 
 export const AppWrapper = styled.div`
     position: absolute;

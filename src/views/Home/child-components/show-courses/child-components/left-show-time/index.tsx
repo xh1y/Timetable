@@ -6,7 +6,7 @@
  */
 import { LeftShowWrapper } from './styles.ts'
 import SmallBoxInTable from '../../../../../../components/small-box-in-table'
-import { colorInList } from '../../../../../../types'
+import { colorInList } from '../../../../../../types/types.ts'
 
 function LeftPart() {
     let counter = 1

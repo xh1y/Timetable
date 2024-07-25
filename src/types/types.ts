@@ -70,11 +70,23 @@ interface IClasses {
     startWeek: number
     endWeek: number
     weekType: Week
+    isClass: boolean
+}
+
+interface ICommonThingOneWeek {
+    title: string
+    detail: string
+    day: Day
+    time: CourseOneDay[]
 }
 
 type OneWeekClasses = IClasses[]
 
+type OneWeekCommonThings = ICommonThingOneWeek[]
+
 type AllWeekClasses = OneWeekClasses[]
+
+type AllWeekCommonThings = OneWeekCommonThings[]
 
 interface CoursesOneTime {
     name: string
@@ -87,6 +99,7 @@ interface CoursesOneTime {
     startWeek: number
     endWeek: number
     weekType: Week
+    isClass: boolean
 }
 
 export type {
@@ -103,5 +116,8 @@ export type {
     CoursesOneTime,
     Week,
     ICommonThings,
+    ICommonThingOneWeek,
+    OneWeekCommonThings,
+    AllWeekCommonThings,
 }
 export { colorInList }

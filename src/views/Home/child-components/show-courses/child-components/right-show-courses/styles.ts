@@ -25,15 +25,6 @@ const OneTimeWrapper = styled.div<{ $offset: number }>`
     position: absolute;
     display: flex;
     top: ${(props) => props.$offset * 62}px;
-    //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    //grid-auto-flow: row;
-    //flex-flow: row wrap;
-    //grid-template-rows: auto;
-    //align-items: flex-start;
-
-    //grid-auto-flow: column dense;
-    //vertical-align: top;
 `
 
 export { RightShowWrapper, OneTimeWrapper }

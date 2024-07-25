@@ -5,7 +5,7 @@
  * About:
  */
 import { SmallBoxInTableWrapper } from './styles.ts'
-import { colorInList, CoursesOneTime } from '../../types'
+import { colorInList, CoursesOneTime } from '../../types/types.ts'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { emptyItem } from '../../assets/sortData.ts'
 

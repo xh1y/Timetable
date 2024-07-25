@@ -107,6 +107,8 @@ export const ChooseWrapper = styled.div`
         top: 30px;
         left: ${(width - 100) / 2}px;
     }
+
+    z-index: 100;
 `
 
 export const ChooseWrapperTime = styled.div`
@@ -144,4 +146,6 @@ export const ChooseWrapperTime = styled.div`
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    z-index: 102;
 `

@@ -9,10 +9,12 @@ import {
     CourseOneDay,
     CoursesOneTime,
     Day,
+    IClass,
     IClassLists,
+    ICommonThings,
     OneWeekClasses,
     Week,
-} from '../types'
+} from '../types/types.ts'
 import { endTimeOfClass, startTimeOfClass } from './constants.ts'
 
 function getWeekType(weeks: number[]): Week {
@@ -31,9 +33,35 @@ function getWeekType(weeks: number[]): Week {
 
 export function sortDataToWeek(data: IClassLists): AllWeekClasses {
     const allWeekClasses: AllWeekClasses = []
+    const classData: IClass[] = data.classList
+    const commonThings: ICommonThings[] = data.commonThingsList
     for (let currentWeek = 0; currentWeek < data.totalWeek; currentWeek++) {
         const oneWeek: OneWeekClasses = []
-        for (const classList of data.classList) {
+        for (const commonThing of commonThings) {
+            if (commonThing.week.includes(currentWeek + 1)) {
+                oneWeek.push({
+                    name: commonThing.title,
+                    place: commonThing.detail,
+                    teacher:
+                        '星期' +
+                        changeNumberToChinese(commonThing.day) +
+                        ' ' +
+                        startTimeOfClass[commonThing.time[0] - 1] +
+                        '-' +
+                        endTimeOfClass[
+                            commonThing.time[commonThing.time.length - 1] - 1
+                        ],
+                    day: commonThing.day,
+                    time: commonThing.time,
+                    compulsory: false,
+                    startWeek: commonThing.week[0],
+                    endWeek: commonThing.week[commonThing.week.length - 1],
+                    weekType: 'all',
+                    isClass: false,
+                })
+            }
+        }
+        for (const classList of classData) {
             for (let j = 0; j < classList.detailTimeAndPlace.length; j++) {
                 if (
                     classList.detailTimeAndPlace[j].week.includes(
@@ -55,6 +83,7 @@ export function sortDataToWeek(data: IClassLists): AllWeekClasses {
                         weekType: getWeekType(
                             classList.detailTimeAndPlace[j].week
                         ),
+                        isClass: true,
                     })
                 }
             }
@@ -76,6 +105,7 @@ export const emptyItem: CoursesOneTime = {
     startWeek: 0,
     endWeek: 0,
     weekType: 'all',
+    isClass: true,
 }
 
 export function sortDataInTimeForAll(
@@ -115,7 +145,7 @@ export function sortDataInTimeForAll(
 }
 
 export function sortDataInTimeForOneWeek(
-    data: OneWeekClasses
+    classes: OneWeekClasses
 ): CoursesOneTime[][] {
     const allThings: CoursesOneTime[][] = []
     for (let i = 0; i < 12; i++) {
@@ -127,34 +157,38 @@ export function sortDataInTimeForOneWeek(
         allThings.push(secondLoop)
     }
 
-    for (let courses = 0; courses < data.length; courses++) {
-        allThings[data[courses].time[0] - 1][data[courses].day - 1] = {
-            name: data[courses].name,
-            teacher: data[courses].teacher,
-            place: data[courses].place,
-            timeStart: data[courses].time[0],
-            // @ts-ignore
-            timeDur: data[courses].time.length,
-            day: data[courses].day,
-            compulsory: data[courses].compulsory,
-            startWeek: data[courses].startWeek,
-            endWeek: data[courses].endWeek,
-            weekType: data[courses].weekType,
+    for (let courses = 0; courses < classes.length; courses++) {
+        allThings[classes[courses].time[0] - 1][classes[courses].day - 1] = {
+            name: classes[courses].name,
+            teacher: classes[courses].teacher,
+            place: classes[courses].place,
+            timeStart: classes[courses].time[0],
+            timeDur:
+                classes[courses].time.length == 0
+                    ? 0
+                    : newCourseOneDay(classes[courses].time.length),
+            day: classes[courses].day,
+            compulsory: classes[courses].compulsory,
+            startWeek: classes[courses].startWeek,
+            endWeek: classes[courses].endWeek,
+            weekType: classes[courses].weekType,
+            isClass: classes[courses].isClass,
         }
-        for (let j = 1; j < data[courses].time.length; j++) {
-            allThings[data[courses].time[j] - 1][data[courses].day - 1] = {
-                endWeek: data[courses].endWeek,
-                startWeek: data[courses].startWeek,
-                weekType: data[courses].weekType,
-                name: data[courses].name,
-                teacher: data[courses].teacher,
-                place: data[courses].place,
-                timeStart: data[courses].time[0],
-                // @ts-ignore
-                timeDur: 0,
-                day: data[courses].day,
-                compulsory: data[courses].compulsory,
-            }
+        for (let j = 1; j < classes[courses].time.length; j++) {
+            allThings[classes[courses].time[j] - 1][classes[courses].day - 1] =
+                {
+                    endWeek: classes[courses].endWeek,
+                    startWeek: classes[courses].startWeek,
+                    weekType: classes[courses].weekType,
+                    name: classes[courses].name,
+                    teacher: classes[courses].teacher,
+                    place: classes[courses].place,
+                    timeStart: classes[courses].time[0],
+                    timeDur: 0,
+                    day: classes[courses].day,
+                    compulsory: classes[courses].compulsory,
+                    isClass: classes[courses].isClass,
+                }
         }
     }
 
@@ -190,17 +224,9 @@ export function changeNumberToChinese(day: number | Day) {
 }
 
 export function newDay(num: number): Day {
-    if (num >= 1 && num <= 7) {
-        return <Day>num
-    } else {
-        return 1
-    }
+    return num >= 1 && num <= 7 ? <Day>num : 1
 }
 
 export function newCourseOneDay(num: number): CourseOneDay {
-    if (num >= 1 && num <= 12) {
-        return <CourseOneDay>num
-    } else {
-        return 1
-    }
+    return num >= 1 && num <= 12 ? <CourseOneDay>num : 1
 }

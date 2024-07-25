@@ -1,4 +1,4 @@
-import { IClassLists } from '../types'
+import { IClassLists } from '../types/types.ts'
 
 export const classDataRaw: IClassLists = /*Mock.mock(*/ {
     classList: [

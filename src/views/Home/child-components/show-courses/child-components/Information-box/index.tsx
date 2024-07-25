@@ -6,7 +6,7 @@
  */
 import { InformationWrapper } from './styles.ts'
 import RightArray from '../../../../../../assets/svg/right-array.tsx'
-import { CoursesOneTime } from '../../../../../../types'
+import { CoursesOneTime } from '../../../../../../types/types.ts'
 import { getTime } from '../../../../../../assets/sortData.ts'
 
 function InformationBox({
@@ -17,9 +17,12 @@ function InformationBox({
     displayInformation: CoursesOneTime
 }) {
     console.log(`()()${displayInformation.timeDur}`)
+
     return (
         <InformationWrapper $offset={offset}>
-            <div className='header-name'>{displayInformation.name}</div>
+            <div className='header-name'>
+                <div className='name'>{displayInformation.name}</div>
+            </div>
             <div className='small-place-and-teacher'>
                 <span className='place'>{displayInformation.place}</span>
                 <span className='right-array'>
@@ -57,10 +60,18 @@ function InformationBox({
                     </span>
                 </div>
                 <div className='one-row'>
-                    <span className='row-left'>课程类型</span>
-                    <span className='row-right'>
-                        {displayInformation.compulsory ? '必修' : '选修'}
-                    </span>
+                    {displayInformation.isClass ? (
+                        <>
+                            <span className='row-left'>课程类型</span>
+                            <span className='row-right'>
+                                {displayInformation.compulsory
+                                    ? '必修'
+                                    : '选修'}
+                            </span>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </InformationWrapper>

@@ -6,11 +6,19 @@
  */
 import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
-import { classDataRaw } from './data'
 import Mock from 'mockjs'
+import { shallowEqual, useSelector } from 'react-redux'
 
 function App() {
-    Mock.mock('/class/data/', 'get', classDataRaw)
+    const { allUpdate } = useSelector(
+        (state: any) => ({
+            allUpdate: state.allUpdate,
+        }),
+        shallowEqual
+    )
+    console.log(`allUpdate.commonThingsList = ${allUpdate.commonThingsList}`)
+    console.log(allUpdate.commonThingsList)
+    Mock.mock('/class/data/', 'get', allUpdate)
     return <RouterProvider router={router}></RouterProvider>
 }
 

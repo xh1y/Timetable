@@ -12,17 +12,19 @@ const updateNewSlice = createSlice({
     initialState: classDataRaw,
     reducers: {
         addNewItemInThingsAction(state, { payload }) {
-            const newState = { ...state }
-            newState.commonThingsList.push(payload)
-            state = newState
+            state.commonThingsList.push(payload)
+            console.log('!!!!!!*****    ')
+            console.log(state)
         },
         deleteItemInThingsAction(state, { payload }) {
             const newState = { ...state }
             newState.commonThingsList = newState.commonThingsList.filter(
-                (item) => item.id !== payload.id
+                (item) => item.id !== payload
             )
 
             state = newState
+            console.log('-=-=-=-=-=-=-=-=-=-=-==')
+            console.log(newState)
         },
     },
 })

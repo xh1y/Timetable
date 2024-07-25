@@ -13,18 +13,18 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { AllWeekClasses, IPosition } from '../../types'
+import { AllWeekClasses, IPosition } from '../../types/types.ts'
 import { width } from '../../assets/constants.ts'
 import { myRequest } from '../../services'
 import axios from 'axios'
 import { sortDataToWeek } from '../../assets/sortData.ts'
-import { shallowEqual, useSelector } from 'react-redux'
+import { getQuery } from '../../assets/getQuery.ts'
+import { useLocation } from 'react-router-dom'
 
 function Home() {
     // state
     const [pending, setPending] = useState<boolean>(false)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    // @ts-ignore
     const [moving, setMoving] = useState<boolean>(false)
     const [initPosition, setInitPosition] = useState<IPosition>({ x: 0, y: 0 })
     const [transitionY, setTransitionY] = useState<number>(14.5)
@@ -33,6 +33,10 @@ function Home() {
     >('end')
     const [show, setShow] = useState(false)
     let offset = 14.5
+    const query = getQuery(useLocation().search.slice(1).split('&')).length
+    if (query > 0) {
+        setPending(true)
+    }
     const courses: MutableRefObject<AllWeekClasses> = useRef([
         [
             {
@@ -45,17 +49,11 @@ function Home() {
                 startWeek: 0,
                 endWeek: 0,
                 weekType: 'all',
+                isClass: true,
             },
         ],
     ])
 
-    const { commonThingsList } = useSelector(
-        (state: any) => ({
-            commonThingsList: state.allUpdate.commonThingsList,
-        }),
-        shallowEqual
-    )
-    console.log(commonThingsList)
     // effect
     useEffect(() => {
         console.log(transitionY, movingStatus)
