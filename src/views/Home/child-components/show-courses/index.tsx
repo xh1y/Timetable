@@ -29,8 +29,14 @@ import InformationBox from './child-components/Information-box'
 const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     // state
     // const week = getAccurateDate(firstDayDate, nowDate)
+    const totalWeek = courses.length
+
     const [startWeek, setStartWeek] = useState<number>(
-        getAccurateWeek(firstDayDate, nowDate)
+        getAccurateWeek(firstDayDate, nowDate) < 1
+            ? 1
+            : getAccurateWeek(firstDayDate, nowDate) > totalWeek
+              ? totalWeek
+              : getAccurateWeek(firstDayDate, nowDate)
     )
     const [initX, setInitX] = useState<number>(0)
     const [isMoving, setIsMoving] = useState<boolean>(false)
@@ -40,7 +46,6 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     // effect
     // let placeX = 0
     // event handler
-    const totalWeek = courses.length
 
     function mouseUpHandler(e: MouseEvent<HTMLDivElement>) {
         setIsMoving(false)
@@ -59,6 +64,13 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     }
 
     function calculateOffset(offset: number) {
+        // if(startWeek < 0) {
+        //     setStartWeek(1)
+        //     return 0
+        // } else if(startWeek > totalWeek) {
+        //     setStartWeek(totalWeek)
+        //     return (totalWeek - 1) * width
+        // }
         let of = (startWeek - 1) * width
         if (isMoving && startWeek < totalWeek) {
             if (offset > width / 4 && startWeek > 0) {
@@ -80,7 +92,13 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
         <CoursesWrapper onClick={() => setDisplay(false)}>
             <TopWeek
                 week={startWeek}
-                currentWeek={getAccurateWeek(firstDayDate, nowDate)}
+                currentWeek={
+                    getAccurateWeek(firstDayDate, nowDate) < 1
+                        ? 1
+                        : getAccurateWeek(firstDayDate, nowDate) > totalWeek
+                          ? totalWeek
+                          : getAccurateWeek(firstDayDate, nowDate)
+                }
                 setStartWeek={setStartWeek}
             />
             <UnderMovableWrapper

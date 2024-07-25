@@ -6,6 +6,7 @@ import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
 import Mock from 'mockjs'
 import { shallowEqual, useSelector } from 'react-redux'
+import Time from './views/Time'
 
 function App() {
     const { allUpdate } = useSelector(
@@ -17,7 +18,12 @@ function App() {
     console.log(`allUpdate.commonThingsList = ${allUpdate.commonThingsList}`)
     console.log(allUpdate.commonThingsList)
     Mock.mock('/class/data/', 'get', allUpdate)
-    return <RouterProvider router={router}></RouterProvider>
+    return (
+        <>
+            <Time />
+            <RouterProvider router={router}></RouterProvider>
+        </>
+    )
 }
 
 export default App

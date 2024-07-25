@@ -19,7 +19,7 @@ export const TotalPageWrapper = styled.div`
 
     .left-arr {
         position: relative;
-        top: 10px;
+        top: 30px;
         margin-left: 20px;
     }
 
