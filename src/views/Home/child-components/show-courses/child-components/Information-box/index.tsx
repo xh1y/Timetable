@@ -1,13 +1,11 @@
-/**
+/*
  * Create time: 2024 07 22  21:52:59
- * File name: index.tsx
- * Path: src\views\Home\child-components\show-courses\child-components\Information-box\index.tsx
- * About:
  */
-import { InformationWrapper } from './styles.ts'
-import RightArray from '../../../../../../assets/svg/right-array.tsx'
+
 import { CoursesOneTime } from '../../../../../../types/types.ts'
-import { getTime } from '../../../../../../assets/sortData.ts'
+import { InformationWrapper } from './styles.ts'
+import { getTime } from '../../../../../../assets/function/getAccurateDate.ts'
+import RightArrow from '../../../../../../assets/svg/right-arrow.tsx'
 
 function InformationBox({
     offset,
@@ -26,7 +24,7 @@ function InformationBox({
             <div className='small-place-and-teacher'>
                 <span className='place'>{displayInformation.place}</span>
                 <span className='right-array'>
-                    <RightArray />
+                    <RightArrow />
                 </span>
                 <span className='teacher'>{displayInformation.teacher}</span>
             </div>

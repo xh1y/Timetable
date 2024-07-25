@@ -1,12 +1,10 @@
-/**
+/*
  * Create time: 2024 07 21  14:33:29
- * File name: styles.ts
- * Path: src/components/small-box-in-table
- * About:
  */
+
 import styled from 'styled-components'
 import { IBoxProps } from '../../types/types.ts'
-import { colorOptions, width } from '../../assets/constants.ts'
+import { colorOptions, width } from '../../assets/constant/constants.ts'
 
 export const SmallBoxInTableWrapper = styled.div<IBoxProps>`
     width: ${width / 8 - 2}px;
@@ -24,7 +22,6 @@ export const SmallBoxInTableWrapper = styled.div<IBoxProps>`
     }
 
     display: flex;
-    //display: table;
     flex-direction: column;
 
     margin: 1px;

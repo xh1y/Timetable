@@ -13,6 +13,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "noEmit": true,
     "allowImportingTsExtensions": true,
     "noImplicitAny": true
   }

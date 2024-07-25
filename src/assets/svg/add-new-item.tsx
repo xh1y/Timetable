@@ -1,15 +1,8 @@
-/**
- * Create time: 2024 07 24  10:57:38
- * File name: add-new-item.tsx
- * Path: src/assets/svg
- * About:
- */
-
-/**
- * Create time: 2024 07 24  10:57:51
- * File name: add-new-item.tsx
- * Path: src\assets\svg\add-new-item.tsx
- * About:
+/*
+  Create time: 2024 07 24  10:57:38
+  About:
+  An image in svg format to be used as an icon for adding events.
+  Download from iconfont
  */
 
 function AddNewItem() {

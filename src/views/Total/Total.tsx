@@ -1,35 +1,36 @@
-/**
+/*
  * Create time: 2024 07 24  11:19:3
- * File name: AddTotal.tsx
- * Path: src\views\Total\AddTotal.tsx
- * About:
  */
-import { ChooseWrapper, ChooseWrapperTime, TotalPageWrapper } from './styles.ts'
-import LeftArray from '../../assets/svg/left-array.tsx'
-import InputBox from '../../components/input-box'
-import { getQuery } from '../../assets/getQuery.ts'
+
+import { getQuery } from '../../assets/function/getQuery.ts'
 import { useLocation } from 'react-router-dom'
-import { JSX, useEffect, useRef, useState } from 'react'
-import ComponentBox from '../../components/component-box/ComponentBox.tsx'
+import { useEffect, useRef, useState } from 'react'
 import {
     CourseOneDay,
     Day,
     IClassLists,
     ICommonThings,
 } from '../../types/types.ts'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { addNewItemInThingsAction } from '../../stores/modules/all-update/all-update.ts'
+import axios from 'axios'
+import { myRequest } from '../../services'
+import { sortDataToWeek } from '../../assets/function/sortData.ts'
+import { ChooseWrapper, ChooseWrapperTime, TotalPageWrapper } from './styles.ts'
+import ComponentBox from '../../components/component-box/ComponentBox.tsx'
 import {
     changeNumberToChinese,
     getTime,
     newCourseOneDay,
     newDay,
-    sortDataToWeek,
-} from '../../assets/sortData.ts'
-import axios from 'axios'
-import { myRequest } from '../../services'
-import { endTimeOfClass, startTimeOfClass } from '../../assets/constants.ts'
+} from '../../assets/function/getAccurateDate.ts'
+import {
+    endTimeOfClass,
+    startTimeOfClass,
+} from '../../assets/constant/constants.ts'
+import LeftArrow from '../../assets/svg/left-arrow.tsx'
+import InputBox from '../../components/input-box'
 import RightArrowWithLeft from '../../assets/svg/right-arrow-with-left-.tsx'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { addNewItemInThingsAction } from '../../stores/modules/all-update/all-update.ts'
 
 function Total() {
     // state
@@ -249,7 +250,7 @@ function Total() {
                 onClick={() => {
                     window.location.href = '/'
                 }}>
-                <LeftArray />
+                <LeftArrow />
             </div>
             <div className='input-title'>
                 <InputBox
@@ -326,4 +327,4 @@ function Total() {
 }
 
 export default Total
-// AddTotal
+// Total

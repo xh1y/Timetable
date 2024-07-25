@@ -1,9 +1,8 @@
-/**
+/*
  * Create time: 2024 07 21  13:53:53
- * File name: styles.ts
- * Path: src\views\Home\child-components\show-courses\child-components\top-show-date-month\styles.ts
- * About:
+
  */
+
 import styled from 'styled-components'
 
 export const TopTimeWrapper = styled.div`

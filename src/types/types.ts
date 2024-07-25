@@ -40,9 +40,6 @@ interface IPosition {
 
 interface IBoxProps {
     $number: number
-    // upperInformation: string
-    // lowerInformation: string
-    // color: "#f9e8d8" | "#f9e3e5" | "#dde3f9"
     $color: colorInList
     $offset?: number
 }

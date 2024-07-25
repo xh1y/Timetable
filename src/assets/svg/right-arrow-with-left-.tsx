@@ -1,15 +1,6 @@
-/**
- * Create time: 2024 07 24  14:01:52
- * File name: right-arrow-with-left-.tsx
- * Path: src/assets/svg
- * About:
- */
-
-/**
- * Create time: 2024 07 24  14:1:57
- * File name: right-arrow-with-left-.tsx
- * Path: src\assets\svg\right-arrow-with-left-.tsx
- * About:
+/*
+  Create time: 2024 07 24  14:1:57
+  About:
  */
 
 function RightArrowWithLeft() {

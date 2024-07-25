@@ -1,14 +1,37 @@
-/**
+/*
  * Create time: 2024 07 21  14:33:49
- * File name: index.tsx
- * Path: src\components\small-box-in-table\index.tsx
- * About:
  */
-import { SmallBoxInTableWrapper } from './styles.ts'
+
 import { colorInList, CoursesOneTime } from '../../types/types.ts'
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import { emptyItem } from '../../assets/sortData.ts'
+import { SmallBoxInTableWrapper } from './styles.ts'
+import { emptyItem } from '../../assets/function/sortData.ts'
 
+/**
+ * A component that displays text on two levels, mainly used in the class schedule display.
+ * @param topText Specify the text of the above section (required)
+ * @param bottomText Specify the text of the following section (required) <br />
+ * <b>Note: If you want to display only one line of text, set bottomText to an empty string ('')</b>
+ * @param color Specifies the color of the component. (required) <br />
+ * there are these options in total:
+ * morning,
+ * afternoon,
+ * evening,
+ * defineAfter,
+ * notNow,
+ * now,
+ * nothing,
+ * add. <br />
+ * The exact colors are in the constants.
+ * @param fontSize Specify font size (not required)
+ * @param height Specify component height (not required)
+ * @param offset Specify component Y-axis offset (not required)
+ * @param displayObj
+ * @param course Specify the courses displayed by the component (used in class schedules, not required)
+ * @param setInformation
+ * @param img If image or other element want to display, set image to true (not required, default is false)
+ * @param element Specify images or other elements to display (not required)
+ */
 function SmallBoxInTable({
     topText,
     bottomText,

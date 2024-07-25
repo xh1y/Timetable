@@ -1,11 +1,9 @@
-/**
- * Create time: 2024 07 23  0:20:29
- * File name: right-array.ts
- * Path: src\assets\svg\right-array.ts
- * About:
+/*
+ Create time: 2024 07 23  0:20:29
+ About:
  */
 
-function RightArray() {
+function RightArrow() {
     return (
         <svg
             className='icon'
@@ -19,5 +17,5 @@ function RightArray() {
     )
 }
 
-export default RightArray
-// RightArray
+export default RightArrow
+// RightArrow

@@ -1,34 +1,42 @@
-/**
+/*
  * Create time: 2024 07 21  12:18:38
- * File name: index.tsx
- * Path: src\views\Home\child-components\show-courses\index.tsx
- * About:
  */
-import {
-    BottomWrapper,
-    CoursesWrapper,
-    UnderMovableWrapper,
-} from './styles.tsx'
-import TopDate from './child-components/top-show-date-month'
-import TopWeek from './child-components/top-show-week'
-import LeftShowTime from './child-components/left-show-time'
-import RightShowCourses from './child-components/right-show-courses'
-import { memo, MouseEvent, useState } from 'react'
-import { getAccurateDate } from '../../../../assets/getAccurateDate.ts'
-import { firstDayDate, nowDate, width } from '../../../../assets/constants.ts'
+
 import {
     AllWeekClasses,
     CoursesOneTime,
     OneWeekClasses,
 } from '../../../../types/types.ts'
+import { memo, MouseEvent, useState } from 'react'
+import { getAccurateWeek } from '../../../../assets/function/getAccurateDate.ts'
+import {
+    firstDayDate,
+    nowDate,
+    width,
+} from '../../../../assets/constant/constants.ts'
+import { emptyItem } from '../../../../assets/function/sortData.ts'
+import {
+    BottomWrapper,
+    CoursesWrapper,
+    UnderMovableWrapper,
+} from './styles.tsx'
+import TopWeek from './child-components/top-show-week'
+import TopDate from './child-components/top-show-date-month'
+import LeftShowTime from './child-components/left-show-time'
+import RightShowCourses from './child-components/right-show-courses'
 import InformationBox from './child-components/Information-box'
-import { emptyItem } from '../../../../assets/sortData.ts'
 
 const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     // state
     // const week = getAccurateDate(firstDayDate, nowDate)
+    const totalWeek = courses.length
+
     const [startWeek, setStartWeek] = useState<number>(
-        getAccurateDate(firstDayDate, nowDate)
+        getAccurateWeek(firstDayDate, nowDate) < 1
+            ? 1
+            : getAccurateWeek(firstDayDate, nowDate) > totalWeek
+              ? totalWeek
+              : getAccurateWeek(firstDayDate, nowDate)
     )
     const [initX, setInitX] = useState<number>(0)
     const [isMoving, setIsMoving] = useState<boolean>(false)
@@ -38,7 +46,6 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     // effect
     // let placeX = 0
     // event handler
-    const totalWeek = courses.length
 
     function mouseUpHandler(e: MouseEvent<HTMLDivElement>) {
         setIsMoving(false)
@@ -57,6 +64,13 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
     }
 
     function calculateOffset(offset: number) {
+        // if(startWeek < 0) {
+        //     setStartWeek(1)
+        //     return 0
+        // } else if(startWeek > totalWeek) {
+        //     setStartWeek(totalWeek)
+        //     return (totalWeek - 1) * width
+        // }
         let of = (startWeek - 1) * width
         if (isMoving && startWeek < totalWeek) {
             if (offset > width / 4 && startWeek > 0) {
@@ -78,7 +92,13 @@ const ShowCourses = ({ courses }: { courses: AllWeekClasses }) => {
         <CoursesWrapper onClick={() => setDisplay(false)}>
             <TopWeek
                 week={startWeek}
-                currentWeek={getAccurateDate(firstDayDate, nowDate)}
+                currentWeek={
+                    getAccurateWeek(firstDayDate, nowDate) < 1
+                        ? 1
+                        : getAccurateWeek(firstDayDate, nowDate) > totalWeek
+                          ? totalWeek
+                          : getAccurateWeek(firstDayDate, nowDate)
+                }
                 setStartWeek={setStartWeek}
             />
             <UnderMovableWrapper

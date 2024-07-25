@@ -1,11 +1,7 @@
-/**
- * Create time: 2024 07 24  11:33:40
- * File name: styles.ts
- * Path: src/components/input-box
- * About:
- */
+/* Create time: 2024 07 24  11:33:40 */
+
 import styled from 'styled-components'
-import { width } from '../../assets/constants.ts'
+import { width } from '../../assets/constant/constants.ts'
 
 export const InputBoxWrapper = styled.div<{ $backgroundColor?: string }>`
     background-color: ${(props) =>

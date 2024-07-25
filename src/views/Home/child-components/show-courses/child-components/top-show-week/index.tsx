@@ -1,15 +1,12 @@
-/**
- * Create time: 2024 07 21  13:55:57
- * File name: index.tsx
- * Path: src\views\Home\child-components\show-courses\child-components\top-show-week\index.tsx
- * About:
- */
+/*
+ * Create time: 2024 07 21  13:55:57*/
+
+import { Dispatch, SetStateAction } from 'react'
 import {
     AddItemWrapper,
     BackToNowButtonWrapper,
     TopTimeWrapper,
 } from './styles.ts'
-import { Dispatch, SetStateAction } from 'react'
 import AddNewItem from '../../../../../../assets/svg/add-new-item.tsx'
 
 const TopWeek = ({

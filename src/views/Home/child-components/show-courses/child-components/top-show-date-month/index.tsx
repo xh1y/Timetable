@@ -1,14 +1,15 @@
-/**
+/*
  * Create time: 2024 07 21  13:55:49
- * File name: index.tsx
- * Path: src\views\Home\child-components\show-courses\child-components\top-show-date-month\index.tsx
- * About:
  */
+
+import { getFirstDayOfWeek } from '../../../../../../assets/function/getAccurateDate.ts'
+import {
+    firstDayDate,
+    nowDate,
+} from '../../../../../../assets/constant/constants.ts'
 import { TopDateWrapper } from './styles.ts'
 import SmallBoxInTable from '../../../../../../components/small-box-in-table'
 import { colorInList } from '../../../../../../types/types.ts'
-import { getFirstDayOfWeek } from '../../../../../../assets/getAccurateDate.ts'
-import { firstDayDate, nowDate } from '../../../../../../assets/constants.ts'
 
 function TopDate({ startWeek }: { startWeek: number }) {
     const firstDayOfThisWeek = getFirstDayOfWeek(firstDayDate, startWeek)

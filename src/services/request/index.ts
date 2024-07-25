@@ -1,8 +1,6 @@
-/**
+/*
  * Create time: 2024 07 22  11:15:23
- * File name: index.tsx
- * Path: src/services/request
- * About:
+
  */
 
 import axios, { AxiosInstance } from 'axios'

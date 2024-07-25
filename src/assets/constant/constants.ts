@@ -1,10 +1,10 @@
-/**
- * Create time: 2024 07 21  00:45:57
- * File name: constants.ts
- * Path: src/components
- * About: Some constants can be found herr
+/*
+ Create time: 2024 07 21  00:45:57
+ About: Some constants can be found here
  */
-import { MyDate } from './getAccurateDate.ts'
+
+//
+import { MyDate } from '../function/MyDate.ts'
 
 export const width =
     document.body.clientWidth < 425 ? document.body.clientWidth : 425
@@ -86,5 +86,5 @@ export const endTimeOfClass = [
     '22:30',
 ]
 
-export const nowDate = new MyDate(2024, 11, 8)
+export const nowDate = new MyDate(2024, 12, 8)
 export const firstDayDate = new MyDate(2024, 9, 9)

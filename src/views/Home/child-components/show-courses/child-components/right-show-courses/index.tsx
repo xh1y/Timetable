@@ -1,18 +1,15 @@
-/**
- * Create time: 2024 07 21  13:55:34
- * File name: index.tsx
- * Path: src\views\Home\child-components\show-courses\child-components\right-show-courses\index.tsx
- * About:
- */
-import { OneTimeWrapper, RightShowWrapper } from './styles.ts'
-import SmallBoxInTable from '../../../../../../components/small-box-in-table'
+/*
+ * Create time: 2024 07 21  13:55:34*/
+
+import { Dispatch, memo, SetStateAction } from 'react'
 import {
     colorInList,
     CoursesOneTime,
     OneWeekClasses,
 } from '../../../../../../types/types.ts'
-import { sortDataInTimeForOneWeek } from '../../../../../../assets/sortData.ts'
-import { Dispatch, memo, SetStateAction } from 'react'
+import { sortDataInTimeForOneWeek } from '../../../../../../assets/function/sortData.ts'
+import { OneTimeWrapper, RightShowWrapper } from './styles.ts'
+import SmallBoxInTable from '../../../../../../components/small-box-in-table'
 
 const RightPart = memo(
     ({
