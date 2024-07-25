@@ -40,7 +40,7 @@ type CourseOneDay = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 ### Show current time
 In order to simulate the time of the next semester, the time is set to December 8, 2024.  
 If you need to change it, you can go to ``src/assets/constant/constants.ts`` to modify the variable ``nowDate``.  
-> Note: If the nowDate is earlier than the start time, the schedule opens for the first week, and if the nowDate is later than the set end time (there is a totalWeek in ``src/data/index.ts`` to control the end time), the schedule opens for the last week.
+> Note: If the ``nowDate`` is earlier than the start time, the schedule opens for the first week, and if the ``nowDate`` is later than the set end time (there is a variable ``totalWeek`` in ``classDataRaw`` (``src/data/index.ts``) to control the end time), the schedule opens for the last week.
 
 At the top of the page there is the current time, the date is the date set in ``src/assets/constant/constants.ts``, and the hours, minutes, and seconds are the current time.
 ### Go back to the current week
@@ -49,7 +49,7 @@ Click the Back to this week button to return to the week of the date defined ins
 ### Show details
 Click a course on the schedule or a custom event.  
 When the clicked course is a course, it displays the course name, location, teacher, number of weeks, class time, and whether it is mandatory or not.  
-And when the event is clicked, it displays the title, detail, and time.
+And when the custom event is clicked, it displays the title, detail, and time.
 ## Catalog structure
 ```text
 Tree
@@ -173,4 +173,4 @@ Tree
         \---Total
             styles.ts
             Total.tsx
-```   
+```
