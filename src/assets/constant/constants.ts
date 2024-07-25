@@ -86,5 +86,5 @@ export const endTimeOfClass = [
     '22:30',
 ]
 
-export const nowDate = new MyDate(2024, 12, 8)
-export const firstDayDate = new MyDate(2024, 9, 9)
+export const nowDate: MyDate = new MyDate(2024, 12, 8)
+export const firstDayDate: MyDate = new MyDate(2024, 9, 9)

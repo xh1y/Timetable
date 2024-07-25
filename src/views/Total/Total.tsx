@@ -315,10 +315,7 @@ function Total() {
                         time: getArrayTime(startClass, endClass),
                     })
                     console.log(commonThingsList)
-                    setTimeout(() => {
-                        console.log(commonThingsList)
-                        window.location.href = '/'
-                    }, 1000)
+                    window.location.href = '/'
                 }}>
                 <RightArrowWithLeft />
             </div>
